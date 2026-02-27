@@ -4,7 +4,7 @@ from tkinter import messagebox
 from datetime import datetime
 import csv
 
-FILENAME = "list.csv"
+CSV_FILE = "list.csv"
 
 def is_valid_date(date_text):
     try:
@@ -36,16 +36,20 @@ def save_to_csv(filename, list_to_save):
 
 def load_from_csv(filename):
     fieldnames = ["task_id", "subject", "desc", "due_date", "status"]
+    try:
+        with open(filename, mode="r", newline="") as file:
+            reader = csv.DictReader(file, fieldnames=fieldnames)
+            rows = list(reader)
+    except FileNotFoundError:
+        with open(filename, mode = "w", newline= "") as file:
+            rows = []
 
-    with open(filename, mode="r", newline="") as file:
-        reader = csv.DictReader(file, fieldnames=fieldnames)
-        rows = list(reader)
 
     return rows
 
 
 def main():
-    tasks = load_from_csv(FILENAME)
+    tasks = load_from_csv(CSV_FILE)
 
     root = tk.Tk()
     root.title("Homework Tracker (Lesson 1)")
@@ -136,7 +140,7 @@ def main():
 
         refresh_tree(tree, tasks)
         #clear_form(task_id_var, subject_var, desc_var, due_date_var, status_var)
-        save_to_csv(FILENAME, [task_id, subject, desc, due_date, status])
+        save_to_csv(CSV_FILE, [task_id, subject, desc, due_date, status])
         
         entry_task_id.focus_set()
 
