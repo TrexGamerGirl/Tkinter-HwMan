@@ -1,0 +1,10 @@
+id,subject,description,due_date,status
+1,Maths,Complete Chapter 5 exercises,2026-02-25,Pending
+2,English,Essay draft on persuasive writing,2026-03-10,Pending
+3,Science,Lab report on acids and bases,2026-02-28,Done
+4,History,Research WWI causes,2026-03-05,Pending
+5,Computing,Finish Tkinter CRUD app,2026-03-01,Pending
+6,Art,Prepare visual diary submission,2026-03-15,Done
+7,Biology,Revise genetics notes,2026-02-20,Pending
+9,English,Read novel chapters 8–10,2026-03-02,Done
+10,Maths,Practice exam questions set 1,2026-03-22,Pending
